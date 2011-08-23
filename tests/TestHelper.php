@@ -11,6 +11,9 @@ set_include_path(
         . PATH_SEPARATOR . get_include_path()
 );
 
+// Framework Mock
+require_once 'Phake.php';
+
 date_default_timezone_set('Europe/Madrid');
 
 error_reporting(E_ALL | E_STRICT);
