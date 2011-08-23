@@ -11,8 +11,11 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
      */
     public function onBarcode_search_catalog()
     {
-        $this->markTestSkipped();
-        // Java Mockito
+        $catalog = Phockito::mock('Catalog');
+        $pointOfSale = new PointOfSale($catalog);
+        $pointOfSale->onBarcode('123');
+        
         // verify(catalog).search("123");
+        Phockito::verify($catalog)->search('123');
     }
 }
