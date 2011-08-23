@@ -4,6 +4,8 @@
  *
  * @author Isidro Merayo
  */
+use \Mockery as m;
+
 class PointOfSaleTest extends PHPUnit_Framework_TestCase {
  
     /**
@@ -11,8 +13,17 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
      */
     public function onBarcode_search_catalog()
     {
-        $this->markTestSkipped();
-        // Java Mockito
+        $catalog = m::mock('Catalog');
+        $pointOfSale = new PointOfSale($catalog);
+        
         // verify(catalog).search("123");
+        $catalog->shouldReceive('search')->once()->with('123');
+        
+        $pointOfSale->onBarcode('123');
+        
+    }
+    
+    public function teardown() {
+        m::close();
     }
 }

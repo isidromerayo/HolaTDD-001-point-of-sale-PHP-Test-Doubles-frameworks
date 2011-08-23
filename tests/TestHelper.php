@@ -11,6 +11,12 @@ set_include_path(
         . PATH_SEPARATOR . get_include_path()
 );
 
+// Mockery
+require_once 'Mockery/Loader.php';
+require_once 'Hamcrest/hamcrest.php';
+$loader = new \Mockery\Loader;
+$loader->register();
+
 date_default_timezone_set('Europe/Madrid');
 
 error_reporting(E_ALL | E_STRICT);
