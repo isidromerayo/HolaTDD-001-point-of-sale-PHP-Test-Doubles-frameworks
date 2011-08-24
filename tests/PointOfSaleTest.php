@@ -32,9 +32,11 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         
         $pointOfSale = new PointOfSale($catalog , $screen);
         
+        // when(catalog.search("123").thenReturn("1€")
+        Phockito::when($catalog)->search('123')->return('1€');
+        
         $pointOfSale->onBarcode('123');
         
-        // when(catalog.search("123").thenReturn("1€")
         
         // verify(screen).show("1€");
         Phockito::verify($screen)->show('1€');
