@@ -13,6 +13,7 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
     {
         $catalog = Phockito::mock('Catalog');
         $pointOfSale = new PointOfSale($catalog);
+        
         $pointOfSale->onBarcode('123');
         
         // verify(catalog).search("123");
@@ -24,8 +25,15 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
      */
     public function onBarcode_show_price() 
     {
-        $this->markTestSkipped();
+        $screen = Phockito::mock('Screen');
+        $catalog = Phockito::mock('Catalog');
+        $pointOfSale = new PointOfSale($catalog);
+        
+        $pointOfSale->onBarcode('123');
+        
         // when(catalog.search("123").thenReturn("1€")
+        
         // verify(screen).show("1€");
+        Phockito::verify($screen)->show('1€');
     }
 }
