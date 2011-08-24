@@ -14,7 +14,9 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
     public function onBarcode_search_catalog()
     {
         $catalog = m::mock('Catalog');
-        $pointOfSale = new PointOfSale($catalog);
+        $screen = m::mock('Screen');
+        
+        $pointOfSale = new PointOfSale($catalog,$screen);
         
         // verify(catalog).search("123");
         $catalog->shouldReceive('search')->once()->with('123');
@@ -33,7 +35,7 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         
         $catalog->shouldReceive('search');
         
-        $pointOfSale = new PointOfSale($catalog);
+        $pointOfSale = new PointOfSale($catalog, $screen);
         
         // verify(screen).show("1€");
         $screen->shouldReceive('show')->with('1€')->once();
