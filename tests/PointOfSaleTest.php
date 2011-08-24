@@ -11,8 +11,9 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
      */
     public function onBarcode_search_catalog()
     {
+        $screen = Phake::mock('Screen');
         $catalog = Phake::mock('Catalog');
-        $pointOfSale = new PointOfSale($catalog);
+        $pointOfSale = new PointOfSale($catalog, $screen);
         
         $pointOfSale->onBarcode('123');
         
@@ -27,7 +28,7 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
     {
         $screen = Phake::mock('Screen');
         $catalog = Phake::mock('Catalog');
-        $pointOfSale = new PointOfSale($catalog);
+        $pointOfSale = new PointOfSale($catalog, $screen);
         
         $pointOfSale->onBarcode('123');
         
