@@ -11,8 +11,10 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
      */
     public function onBarcode_search_catalog()
     {
+        $screen = Phockito::mock('Screen');
         $catalog = Phockito::mock('Catalog');
-        $pointOfSale = new PointOfSale($catalog);
+        
+        $pointOfSale = new PointOfSale($catalog, $screen);
         
         $pointOfSale->onBarcode('123');
         
@@ -27,7 +29,8 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
     {
         $screen = Phockito::mock('Screen');
         $catalog = Phockito::mock('Catalog');
-        $pointOfSale = new PointOfSale($catalog);
+        
+        $pointOfSale = new PointOfSale($catalog , $screen);
         
         $pointOfSale->onBarcode('123');
         
