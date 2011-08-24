@@ -16,6 +16,8 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         $catalog = m::mock('Catalog');
         $screen = m::mock('Screen');
         
+        $screen->shouldReceive('show');
+        
         $pointOfSale = new PointOfSale($catalog,$screen);
         
         // verify(catalog).search("123");
@@ -33,7 +35,10 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         $screen = m::mock('Screen');
         $catalog = m::mock('Catalog');
         
-        $catalog->shouldReceive('search');
+        // when(catalog.search("123").thenReturn("1€")
+        $catalog->shouldReceive('search')
+                ->with('123')
+                ->andReturn('1€');
         
         $pointOfSale = new PointOfSale($catalog, $screen);
         
