@@ -23,7 +23,26 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         
     }
     
-    public function teardown() {
+    /**
+     * @test
+     */
+    public function onBarcode_show_price() 
+    {
+        $screen = m::mock('Screen');
+        $catalog = m::mock('Catalog');
+        
+        $catalog->shouldReceive('search');
+        
+        $pointOfSale = new PointOfSale($catalog);
+        
+        // verify(screen).show("1€");
+        $screen->shouldReceive('show')->with('1€')->once();
+        
+        $pointOfSale->onBarcode('123');
+    }
+    
+    public function teardown() 
+    {
         m::close();
     }
 }
