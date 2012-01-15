@@ -48,8 +48,4 @@ class PointOfSaleTest extends PHPUnit_Framework_TestCase {
         $pointOfSale->onBarcode('123');
     }
     
-    public function teardown() 
-    {
-        m::close();
-    }
 }
