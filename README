@@ -7,3 +7,5 @@ Requirements:
 
 PHPUnit - https://github.com/sebastianbergmann/phpunit/
 
+Phockito - https://github.com/hafriedlander/phockito
+
