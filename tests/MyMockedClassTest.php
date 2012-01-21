@@ -13,8 +13,8 @@ class MyMockedClassTest extends PHPUnit_Framework_TestCase {
         $mock->shouldReceive('fooWithArgument')->with('foo')->ordered();
         $mock->shouldReceive('fooWithArgument')->with('bar')->ordered();
         
-        $mock->fooWithArgument('bar');
         $mock->fooWithArgument('foo');
+        $mock->fooWithArgument('bar');
     }
 
 }
