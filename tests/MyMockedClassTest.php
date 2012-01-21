@@ -12,4 +12,18 @@ class MyMockedClassTest extends PHPUnit_Framework_TestCase {
         $mock->fooWithArgument('foo');
         $mock->fooWithArgument('bar');
     }
+    
+    /**
+     * @expectedException RuntimeException 
+     */
+    public function testThrowExceptionStub()
+    {
+        $stub = $this->getMock('SomeClass');
+ 
+        $stub->expects($this->any())
+             ->method('doSomething')
+             ->will($this->throwException(new RuntimeException));
+ 
+        $stub->doSomething();
+    }
 }
