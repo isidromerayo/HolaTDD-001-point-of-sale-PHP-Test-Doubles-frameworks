@@ -4,7 +4,7 @@
  *
  * @author Isidro Merayo
  */
-interface MyPhakeMockedClass {
+interface MyMockedClass {
     
     public function fooWithArgument($argument);
 }

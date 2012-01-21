@@ -1,9 +1,9 @@
 <?php
 
-class MyPhakeMockedClassTest extends PHPUnit_Framework_TestCase {
+class MyMockedClassTest extends PHPUnit_Framework_TestCase {
 
     public function testPHPUnitMock() {
-        $mock = Phake::mock('MyPhakeMockedClass');
+        $mock = Phake::mock('MyMockedClass');
 
         $mock->fooWithArgument('foo');
         $mock->fooWithArgument('bar');
