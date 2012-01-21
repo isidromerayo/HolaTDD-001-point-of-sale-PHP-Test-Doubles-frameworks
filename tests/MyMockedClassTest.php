@@ -16,5 +16,15 @@ class MyMockedClassTest extends PHPUnit_Framework_TestCase {
         $mock->fooWithArgument('foo');
         $mock->fooWithArgument('bar');
     }
+    
+    /**
+     * @expectedException OutOfBoundsException
+     */
+    public function testThrowsException()
+    {
+        $mock = m::mock('MyMockedClass');
+        $mock->shouldReceive('foo')->andThrow(new OutOfBoundsException);
+        $mock->foo();
+    }
 
 }
