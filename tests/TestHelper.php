@@ -13,6 +13,7 @@ set_include_path(
 
 // Framework Mock
 require_once 'Phake.php';
+Phake::setClient(Phake::CLIENT_PHPUNIT);
 
 date_default_timezone_set('Europe/Madrid');
 
